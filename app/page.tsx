@@ -11,12 +11,12 @@ export default function Home() {
     const fetchData = async () => {
       try {
         // Tarik data statistik (Revenue & Receivables)
-        const statsRes = await fetch('http://localhost:3000/invoices/stats');
+        const statsRes = await fetch('https://accounting-backend-murex.vercel.app/invoices/stats');
         const statsData = await statsRes.json();
         setStats(statsData);
 
         // Tarik data list untuk hitung jumlah invoice
-        const listRes = await fetch('http://localhost:3000/invoices');
+        const listRes = await fetch('https://accounting-backend-murex.vercel.app/invoices');
         const listData = await listRes.json();
         setInvoiceCount(listData.length);
         

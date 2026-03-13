@@ -7,7 +7,7 @@ export default function AccountsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:3000/accounts')
+    fetch('https://accounting-backend-murex.vercel.app/accounts')
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {

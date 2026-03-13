@@ -10,7 +10,7 @@ export default function JournalsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:3000/journals')
+    fetch('https://accounting-backend-murex.vercel.app/journals')
       .then(res => res.json())
       .then(data => {
         // Mapping data agar fleksibel dengan format Object atau Array langsung

@@ -26,9 +26,9 @@ export default function InvoicesPage() {
   const fetchData = async () => {
     try {
       const [invRes, statsRes, accRes] = await Promise.all([
-        fetch('http://localhost:3000/invoices'),
-        fetch('http://localhost:3000/invoices/stats'),
-        fetch('http://localhost:3000/accounts')
+        fetch('https://accounting-backend-murex.vercel.app/invoices'),
+        fetch('https://accounting-backend-murex.vercel.app/invoices/stats'),
+        fetch('https://accounting-backend-murex.vercel.app/accounts')
       ]);
       const invData = await invRes.json();
       const statsData = await statsRes.json();
@@ -62,7 +62,7 @@ export default function InvoicesPage() {
       date: new Date().toISOString(),
       dueDate: new Date(formData.dueDate).toISOString(),
     };
-    const res = await fetch('http://localhost:3000/invoices', {
+    const res = await fetch('https://accounting-backend-murex.vercel.app/invoices', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -87,7 +87,7 @@ export default function InvoicesPage() {
   };
 
   const processUpdateStatus = async (id: string, status: string, bankAccountId?: string) => {
-    const res = await fetch(`http://localhost:3000/invoices/${id}/status`, {
+    const res = await fetch(`https://accounting-backend-murex.vercel.app/invoices/${id}/status`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ status, bankAccountId })
